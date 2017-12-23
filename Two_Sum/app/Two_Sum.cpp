@@ -20,14 +20,6 @@ vector<int> twoSum(vector<int>& nums, int target)
 {
 	const vector<int> originalNums = nums;
 
-	bool negativeOperation = false;
-
-	if(target <0){
-		target *= -1;
-		for( auto& i: nums )
-		    i *= -1;
-		negativeOperation= true;
-	}
 
 	//Lesson Learned! Working on sorted data will improve your efficiency significantly specially when you will do a lot of search on the data afterwards.
 	std::sort(nums.begin(), nums.end());
@@ -42,10 +34,7 @@ vector<int> twoSum(vector<int>& nums, int target)
 		 break;
 	}
 
-	if(negativeOperation){
-		targetPair1 *= -1;
-		targetPair2 *= -1;
-	}
+
 
 	auto startIt =  find (originalNums.begin(), originalNums.end(), targetPair1);
 	int pos1 =startIt - originalNums.begin();
@@ -67,7 +56,7 @@ int main()
 
 
 
-	for(int i=0;i<10000;i++){
+	/*for(int i=0;i<10000;i++)*/{
 
 	{
 		vector<int> v = {3,3};
