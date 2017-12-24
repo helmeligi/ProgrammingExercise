@@ -24,8 +24,8 @@ struct ListNode {
 ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 	ListNode* it1 = l1;
 	ListNode* it2 = l2;
-	ListNode* sum = nullptr;
-	ListNode* it;
+	ListNode* sum = new ListNode(0);
+	ListNode* it = sum;
 	unsigned int qot = 0;
 	unsigned int rem = 0;
 	unsigned int el1,el2;
@@ -48,15 +48,14 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 		}
 
 		qot = (el1) + (el2) + qot;
+
+
 		rem = qot%10;
 		qot = qot/10;
-		if(sum == nullptr){
-			sum = new  ListNode(rem);
-			it = sum;
-		}else{
-			it->next = new  ListNode(rem);
-			it = it->next;
-		}
+
+		it->next = new  ListNode(rem);
+		it = it->next;
+
 
 
 	}
@@ -64,7 +63,7 @@ ListNode* addTwoNumbers(ListNode* l1, ListNode* l2) {
 	if(qot > 0)
 		it->next = new  ListNode(qot);
 
-	return sum;
+	return sum->next;
 
 }
 
